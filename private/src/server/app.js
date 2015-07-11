@@ -43,37 +43,39 @@ exports = module.exports = app;
 var _ = di.get('_');
 var jsSpark = di.get('service.jsSpark');
 
-di.add('gol', function() {
+di.add('algorithm.gol', function() {
     return require(ROOT + '/algorithm/gol')(
         di.get('service.jsSpark'),
         di.get('_')
     );
 });
 
-var algo  = di.get('gol')();
+var algo  = di.get('algorithm.gol')();
 algo.test();
+
+di.add('algorithm.weather', function() {
+    return require(ROOT + '/algorithm/weather')(
+        di.get('service.jsSpark'),
+        di.get('_')
+    );
+});
+
+var weather  = di.get('algorithm.weather')();
+//weather.test();
+
 setInterval(
     function() {
-        algo.getAlgo()
+        weather.test()
     },
     15000
 );
 
+
 //setInterval(
-//    function delayedTask() {
-//        console.log('Sending task to calculate');
-//        jsSpark(_.range(1000))
-//            .filter(function isOdd(num) {
-//                return num % 2;
-//            })
-//            .reduce(function sumUp(sum, num) {
-//                return sum + num;
-//            })
-//            .run()
-//            .then(function (data) {
-//                console.log('Total sum of 1 to 1000 odd numbers is:', data);
-//            });
-//    }, 5000
+//    function() {
+//        algo.getAlgo()
+//    },
+//    15000
 //);
 
 
