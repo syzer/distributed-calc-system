@@ -2,72 +2,14 @@
 
 angular.module('jsSparkUiApp')
     .controller('WeatherCtrl', function ($scope, $http, socket, $timeout) {
-        $scope.awesomeThings = [];
+        $scope.weather = {};
 
-        $http.get('/api/things').success(function (awesomeThings) {
-            $scope.awesomeThings = awesomeThings;
-            socket.syncUpdates('thing', $scope.awesomeThings);
+        $http.get('/api/weathers').success(function (weather) {
+            $scope.weather = weather[0];
+            drawCanvas(weather[0]);
         });
 
-        $scope.addThing = function () {
-            if ($scope.newThing === '') {
-                return;
-            }
-            $http.post('/api/things', {name: $scope.newThing});
-            $scope.newThing = '';
-        };
-
-        $scope.deleteThing = function (thing) {
-            $http.delete('/api/things/' + thing._id);
-        };
-
-        $scope.$on('$destroy', function () {
-            socket.unsyncUpdates('thing');
-        });
-
-        var weather = {
-            location: 'Zürich',
-            weather: {
-                fullname: 'Sunday',
-                shortname: 'Sun',
-                temperature: 304.15,
-                rainrisk: 0,
-                humidity: 20,
-                sunshine: 100,
-                weathertype: 'sunny'
-            },
-            weather_forecast: {
-                day1: {
-                    fullname: 'Sunday',
-                    shortname: 'Sun',
-                    temperature: 304.15,
-                    rainrisk: 0,
-                    humidity: 20,
-                    sunshine: 100,
-                    weathertype: 'sunny'
-                },
-                day2: {
-                    fullname: 'Monday',
-                    shortname: 'Mon',
-                    temperature: 300.15,
-                    rainrisk: 0,
-                    humidity: 15,
-                    sunshine: 90,
-                    weathertype: 'rainy'
-                },
-                day3: {
-                    fullname: 'Tuesday',
-                    shortname: 'Mon',
-                    temperature: 301.15,
-                    rainrisk: 5,
-                    humidity: 25,
-                    sunshine: 70,
-                    weathertype: 'cloudy'
-                }
-            }
-        };
-
-        function drawCanvas() {
+        function drawCanvas(weather) {
             var image_index = {
                 sunny: {
                     x: 0,
@@ -146,7 +88,5 @@ angular.module('jsSparkUiApp')
             weathertype = weather.weather_forecast.day3.weathertype;
             ctx.drawImage(img, image_index[weathertype].x, image_index[weathertype].y, image_index[weathertype].width, image_index[weathertype].height, 450, 375, 100, 100);
         }
-
-        $timeout(drawCanvas, 200);
 
     });

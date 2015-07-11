@@ -8,6 +8,7 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Gol = require('../api/gol/gol.model');
+var Weather = require('../api/weather/weather.model');
 
 Thing.find({}).remove(function () {
     Thing.create({
@@ -55,8 +56,53 @@ Gol.find({}).remove(function () {
         y: 100,
         z: 1
     }, {
-        x: 100,
-        y: 100,
+        x: 150,
+        y: 150,
         z: 1
     })
+});
+
+// initial weather
+Weather.find({}).remove(function () {
+    Weather.create({
+        location: 'Zürich',
+            weather: {
+            fullname: 'Sunday',
+                shortname: 'Sun',
+                temperature: 304.15,
+                rainrisk: 0,
+                humidity: 20,
+                sunshine: 100,
+                weathertype: 'sunny'
+        },
+        weather_forecast: {
+            day1: {
+                fullname: 'Sunday',
+                    shortname: 'Sun',
+                    temperature: 304.15,
+                    rainrisk: 0,
+                    humidity: 20,
+                    sunshine: 100,
+                    weathertype: 'sunny'
+            },
+            day2: {
+                fullname: 'Monday',
+                    shortname: 'Mon',
+                    temperature: 300.15,
+                    rainrisk: 0,
+                    humidity: 15,
+                    sunshine: 90,
+                    weathertype: 'rainy'
+            },
+            day3: {
+                fullname: 'Tuesday',
+                    shortname: 'Mon',
+                    temperature: 301.15,
+                    rainrisk: 5,
+                    humidity: 25,
+                    sunshine: 70,
+                    weathertype: 'cloudy'
+            }
+        }
+    });
 });
