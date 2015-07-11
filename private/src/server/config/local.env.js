@@ -6,7 +6,7 @@
 // This file should not be tracked by git.
 
 module.exports = {
-    DOMAIN: 'http://localhost:9000',
+    DOMAIN: 'https://' + process.env.IP + ':' + process.env.PORT, //'http://localhost:9000',
     SESSION_SECRET: "jssparkui-secret",
 
     FACEBOOK_ID: 'app-id',
