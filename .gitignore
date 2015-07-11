@@ -1,0 +1,12 @@
+node_modules
+private/data/drop
+private/data/pickup
+private/src/client/component
+.idea
+npm-debug.log
+.*.sw[a-p]
+private/data/log/error.log
+.tmp/
+dist/
+trash/testOfFunctionSerialization.js
+trash/
