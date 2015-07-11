@@ -69,7 +69,7 @@ sudo npm install -g grunt
 Install js-spark
 ----------------
 ```bash
-git clone git@github.com:syzer/JS-Spark.git && cd $_
+git clone git@github.com:syzer/distributed-calc-system.git && cd $_
 npm install
 ```
         
