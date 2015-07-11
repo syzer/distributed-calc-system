@@ -51,12 +51,12 @@ di.add('gol', function() {
 });
 
 var algo  = di.get('gol')();
-
+algo.test();
 setInterval(
     function() {
         algo.getAlgo()
     },
-    5000
+    15000
 );
 
 //setInterval(

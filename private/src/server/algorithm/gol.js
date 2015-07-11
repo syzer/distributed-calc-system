@@ -5,11 +5,25 @@ module.exports = function gol(jsSpark, _, GolDbModel) {
     var DEAD = '.';
 
     return {
-        getAlgo: getAlgo
+        getAlgo: getAlgo,
+        test: test
     };
 
-    function init() {
+    function calc(data) {
+        console.log('hey', data);
+    }
 
+    function test() {
+        console.warn(runAll(getSpinner()));
+        //jsSpark(runAll(getSpinner()))
+        //    .thru(console.log)
+        //    .run()
+        //    .then(function (data) {
+        //        console.warn('all done', data);
+        //    })
+        //    .catch(function (error) {
+        //        console.error(error);
+        //    })
     }
 
     function getAlgo() {
@@ -24,6 +38,15 @@ module.exports = function gol(jsSpark, _, GolDbModel) {
             .then(function (data) {
                 console.log('Total sum of 1 to 1000 odd numbers is:', data);
             });
+    }
+
+    function getSpinner() {
+        return [
+            '......',
+            '..*...',
+            '..*...',
+            '..*...'
+        ].join('\n');
     }
 
     function getPartOfWorld() {
@@ -84,7 +107,7 @@ module.exports = function gol(jsSpark, _, GolDbModel) {
 
     // maybe recursive
     function nThGeneration(boardSize, nth) {
-        nth = nth || 10;
+        nth = nth || 1;
         var i = 0;
         while (i < nth) {
             boardSize[0] = nextGen(boardSize).join('');
@@ -113,6 +136,10 @@ module.exports = function gol(jsSpark, _, GolDbModel) {
 
     function prepare(lines) {
         return convertBack(nThGeneration(convertInput(lines)))
+    }
+
+    function runAll(input) {
+        return prepare(input);
     }
 
     function run(input) {
