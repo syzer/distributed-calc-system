@@ -64,6 +64,7 @@ install grunt and bower,
 ```bash
 sudo npm install -g bower
 sudo npm install -g grunt
+sudo npm install -g grunt-cli
 sudo npm install -g node-gyp
 ```
 
@@ -98,7 +99,7 @@ npm install
 
 Running with UI
 ---------------
-        git clone git@github.com:syzer/JS-Spark.git && cd $_
+        git clone git@github.com:syzer/distributed-calc-system.git && cd $_
         npm install
         grunt build
         grunt serve
