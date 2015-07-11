@@ -25,7 +25,7 @@ module.exports = function (task, _) {
                 return sum + num;
             })
             .thru(giveMeNiccerResponce)
-            .run()
+            .run({times:5})
             .then(function (data) {
                 // this is executed on back on server
                 console.log('\n\n\nhey i calced all the weather, andd is\n', data);

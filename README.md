@@ -210,10 +210,9 @@ TODO
 - [X] example with cli usage (not daemon)
 - [X] example with using thu
 - [ ] add is broken... maybe fix or remove
+- [X] fix multiple times recalc
 
-
-======
-
+``` 
 Unhandled rejection TypeError: Object THIS IS NICCER RESPONSE 92 seriusly! has no method 'value'
     at first2MostCommon (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/taskManager.js:72:14)
     at checkMajority (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/taskManager.js:91:16)
@@ -225,3 +224,5 @@ From previous event:
     at null.<anonymous> (/home/ubuntu/workspace/distributed-calc-system/private/src/server/app.js:68:17)
     at wrapper [as _onTimeout] (timers.js:261:14)
     at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)
+```
+    
