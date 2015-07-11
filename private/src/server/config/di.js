@@ -136,7 +136,8 @@ var services = {
             require(ROOT_PATH + 'api/thing/thing.socket'),
             require(ROOT_PATH + 'api/client/client.socket')(
                 di.get('service.workers')
-            )
+            ),
+            require(ROOT_PATH + 'api/gol/gol.socket')
             // Insert OTHER sockets below
             ]
     },
