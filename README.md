@@ -64,6 +64,7 @@ install grunt and bower,
 ```bash
 sudo npm install -g bower
 sudo npm install -g grunt
+sudo npm install -g node-gyp
 ```
 
 Install js-spark
