@@ -12,6 +12,7 @@ module.exports = function (app, di) {
     app.use('/api/clients', require('./api/client')(di));
     app.use('/api/things', require('./api/thing'));
     app.use('/api/users', require('./api/user'));
+    app.use('/api/gols', require('./api/gol'));
 
     app.use('/auth', require('./auth'));
 
@@ -19,7 +20,6 @@ module.exports = function (app, di) {
     app.route('/:url(api|auth|component|app|components|assets)/*')
         .get(errors[404]);
 
-    // TODO deprecation warning on sendfile-> sendFile
     // All other routes should redirect to the index.html
     app.route('/*')
         .get(function (req, res) {

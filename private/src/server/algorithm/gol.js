@@ -6,7 +6,7 @@ module.exports = function gol(jsSpark, _) {
     };
 
     function init() {
-
+        //TODO initial state
     }
 
     function getAlgo() {
