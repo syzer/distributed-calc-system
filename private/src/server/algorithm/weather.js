@@ -28,7 +28,7 @@ module.exports = function (task, _) {
             .run({times:5})
             .then(function (data) {
                 // this is executed on back on server
-                console.log('\n\n\nhey i calced all the weather, andd is\n', data);
+                console.log('\n\n\nhey i calced all the weather, and is\n', data);
             });
     }
 
