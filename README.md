@@ -18,7 +18,8 @@ sudo npm install -g node-gyp
 
 Running with UI
 ---------------
-        git clone git@github.com:syzer/distributed-calc-system.git && cd $_
+        git clone git@github.com:syzer/distributed-calc-system.git
+        cd distributed-calc-system
         npm install
         grunt build
         grunt serve

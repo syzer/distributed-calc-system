@@ -1,5 +1,9 @@
 'use strict';
 
+// TODO
+//ctx.fillStyle = "#FFFFFF";
+//ctx.fillRect(0,0, 200, 100)
+
 angular.module('jsSparkUiApp')
     .directive('drawing', function () {
         var COLOR = "#4bf";
