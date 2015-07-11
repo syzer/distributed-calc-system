@@ -1,11 +1,11 @@
 'use strict';
 
 var _ = require('lodash');
-var Thing = require('./gol.model');
+var Gol = require('./gol.model');
 
-// Get list of things
+// Get list of Gols
 exports.index = function (req, res) {
-    Thing.find(function (err, things) {
+    Gol.find(function (err, things) {
         if (err) {
             return handleError(res, err);
         }
@@ -13,9 +13,9 @@ exports.index = function (req, res) {
     });
 };
 
-// Get a single thing
+// Get a single Gol
 exports.show = function (req, res) {
-    Thing.findById(req.params.id, function (err, thing) {
+    Gol.findById(req.params.id, function (err, thing) {
         if (err) {
             return handleError(res, err);
         }
@@ -26,9 +26,9 @@ exports.show = function (req, res) {
     });
 };
 
-// Creates a new thing in the DB.
+// Creates a new Gol in the DB.
 exports.create = function (req, res) {
-    Thing.create(req.body, function (err, thing) {
+    Gol.create(req.body, function (err, thing) {
         if (err) {
             return handleError(res, err);
         }
@@ -36,12 +36,12 @@ exports.create = function (req, res) {
     });
 };
 
-// Updates an existing thing in the DB.
+// Updates an existing Gol in the DB.
 exports.update = function (req, res) {
     if (req.body._id) {
         delete req.body._id;
     }
-    Thing.findById(req.params.id, function (err, thing) {
+    Gol.findById(req.params.id, function (err, thing) {
         if (err) {
             return handleError(res, err);
         }
@@ -58,9 +58,9 @@ exports.update = function (req, res) {
     });
 };
 
-// Deletes a thing from the DB.
+// Deletes a Gol from the DB.
 exports.destroy = function (req, res) {
-    Thing.findById(req.params.id, function (err, thing) {
+    Gol.findById(req.params.id, function (err, thing) {
         if (err) {
             return handleError(res, err);
         }

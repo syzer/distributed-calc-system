@@ -8,7 +8,9 @@ module.exports = function clientIndex(di) {
 
     var router = express.Router();
 
-    router.get('/', auth.hasRole('admin'), controller.index);
+    //router.get('/', auth.hasRole('admin'), controller.index);
+    router.get('/', auth.isAuthenticated(), controller.index);
+    router.get('/count', auth.isAuthenticated(), controller.count);
 
     return router;
 };
