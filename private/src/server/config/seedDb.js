@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Gol = require('../api/gol/gol.model');
 
 Thing.find({}).remove(function () {
     Thing.create({
@@ -46,4 +47,16 @@ User.find({}).remove(function () {
             console.log('finished populating users');
         }
     );
+});
+
+Gol.find({}).remove(function () {
+    Gol.create({
+        x: 100,
+        y: 100,
+        z: 1
+    }, {
+        x: 100,
+        y: 100,
+        z: 1
+    })
 });
