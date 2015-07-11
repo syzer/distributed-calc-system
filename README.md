@@ -27,6 +27,36 @@ To spam more light-weight clients:
         
         node client
 
+
+
+Required to run UI
+==================
+* mongoDB
+default connection parameters:
+
+* mongodb://localhost/jssparkui-dev user: 'js-spark', pass: 'js-spark1'
+install mongo, make sure mongod(mongo service) is running
+run mongo shell with command:
+
+```js
+mongo
+use jssparkui-dev
+db.createUser({ 
+  user: "js-spark",
+  pwd: "js-spark1",
+  roles: [
+    { role: "readWrite", db: "jssparkui-dev" }
+  ]
+})
+```
+* old mongodb engines can use `db.addUser()` with same API
+* to run without UI db code is not required!
+
+* on first run need to seed the db: change option `seedDB: false` => `seedDB: true`
+on `./private/srv/server/config/environment/development.js`
+
+
+
         
 Usage with npm
 ==============
@@ -159,31 +189,6 @@ resources you can use to dive into the topic:
 * [Awesome BigData - A curated list of awesome frameworks, resources and other things.](https://github.com/onurakpolat/awesome-bigdata)
 
 
-Required to run UI
-==================
-* mongoDB
-default connection parameters:
-
-* mongodb://localhost/jssparkui-dev user: 'js-spark', pass: 'js-spark1'
-install mongo, make sure mongod(mongo service) is running
-run mongo shell with command:
-
-```js
-mongo
-use jssparkui-dev
-db.createUser({ 
-  user: "js-spark",
-  pwd: "js-spark1",
-  roles: [
-    { role: "readWrite", db: "jssparkui-dev" }
-  ]
-})
-```
-* old mongodb engines can use `db.addUser()` with same API
-* to run without UI db code is not required!
-
-* on first run need to seed the db: change option `seedDB: false` => `seedDB: true`
-on `./private/srv/server/config/environment/development.js`
 
 Tests
 =====
