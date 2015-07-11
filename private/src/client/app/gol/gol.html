@@ -4,6 +4,20 @@
     <div class="row">
         <div id="d">
             <h1>Game of life</h1>
+
+            <div class="form-group">
+
+                <div class="input-group">
+                    <div class="input-group-addon">Users using this service</div>
+                    <input type="text" class="form-control" id="users" placeholder="Amount" ng-model="clients.length">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-addon">Speed iteration per min</div>
+                    <input type="text" class="form-control" id="speed" placeholder="Speed" ng-model="speed">
+                </div>
+
+            </div>
             <canvas width="800" height="800" id="canvas" drawing></canvas>
         </div>
     </div>

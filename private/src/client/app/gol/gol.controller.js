@@ -10,6 +10,14 @@ angular.module('jsSparkUiApp')
         ctx.fillStyle = COLOR;
 
         $scope.gols = [];
+        $scope.speed = 15;
+
+        $scope.clients = [];
+
+        $http.get('/api/clients').success(function (clients) {
+            $scope.clients = clients;
+            socket.syncUpdates('client', $scope.clients);
+        });
 
         $http.get('/api/gols').success(function (items) {
             $scope.gols = items;
