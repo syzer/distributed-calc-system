@@ -210,3 +210,18 @@ TODO
 - [X] example with cli usage (not daemon)
 - [X] example with using thu
 - [ ] add is broken... maybe fix or remove
+
+
+======
+
+Unhandled rejection TypeError: Object THIS IS NICCER RESPONSE 92 seriusly! has no method 'value'
+    at first2MostCommon (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/taskManager.js:72:14)
+    at checkMajority (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/taskManager.js:91:16)
+    at process._tickCallback (node.js:442:13)
+From previous event:
+    at Object.addTask (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/taskManager.js:51:14)
+    at Object.run (/home/ubuntu/workspace/distributed-calc-system/private/src/server/service/jsSpark.js:96:32)
+    at Object.calcWeather [as test] (/home/ubuntu/workspace/distributed-calc-system/private/src/server/algorithm/weather.js:28:14)
+    at null.<anonymous> (/home/ubuntu/workspace/distributed-calc-system/private/src/server/app.js:68:17)
+    at wrapper [as _onTimeout] (timers.js:261:14)
+    at Timer.listOnTimeout [as ontimeout] (timers.js:112:15)
