@@ -1,6 +1,8 @@
 module.exports = function gol(jsSpark, _, q) {
     'use strict';
 
+    var moment = require('moment');
+
     return {
         getSpinner: getSpinner,
         getPartOfWorld: getPartOfWorld,
@@ -114,26 +116,26 @@ module.exports = function gol(jsSpark, _, q) {
     }
 
     function nextWorld(world) {
-        console.time('1');
+        var start = moment();
         var todos = world
             .map(jsSpark)
             .map(function (jsSpark) {
                 return jsSpark
                     .thru(runAll)
-                    .run({times: 3});
+                    .run();
             });
 
         q.all(todos)
             .then(function (data) {
-                var number = console.timeEnd('1');
-                console.error('\n', number);
+                console.warn('time to run', moment().diff(start, 'seconds'));
                 // TODO broadcast world
                 // may broadcast speed
                 // recursive
+
                 nextWorld(data);
             })
-            .catch(function (data) {
-                console.error('La error');
+            .catch(function (error) {
+                console.error('La error', error);
                 nextWorld(world);   // life is a bitch and we just lost a generation
             });
     }
@@ -141,7 +143,7 @@ module.exports = function gol(jsSpark, _, q) {
     function startCalc() {
         // start from bigger world
         nextWorld(_.range(100).map(function () {
-            return _.times(100, gol.getPartOfWorld).join('');
+            return _.times(1000, gol.getPartOfWorld).join('');
         }));
     }
 

@@ -46,34 +46,27 @@ var jsSpark = di.get('service.jsSpark');
 di.add('algorithm.gol', function() {
     return require(ROOT + '/algorithm/gol')(
         di.get('service.jsSpark'),
-        di.get('_')
+        di.get('_'),
+        di.get('promise')
     );
 });
 
-var algo  = di.get('algorithm.gol')();
-algo.test();
-
-di.add('algorithm.weather', function() {
-    return require(ROOT + '/algorithm/weather')(
-        di.get('service.jsSpark'),
-        di.get('_')
-    );
-});
-
-var weather  = di.get('algorithm.weather')();
-//weather.test();
-
-setInterval(
-    function() {
-        weather.test()
-    },
-    15000
-);
+var gol  = di.get('algorithm.gol')();
+gol.calc();
 
 
+//di.add('algorithm.weather', function() {
+//    return require(ROOT + '/algorithm/weather')(
+//        di.get('service.jsSpark'),
+//        di.get('_')
+//    );
+//});
+
+//var weather  = di.get('algorithm.weather')();
+//
 //setInterval(
 //    function() {
-//        algo.getAlgo()
+//        weather.test()
 //    },
 //    15000
 //);
