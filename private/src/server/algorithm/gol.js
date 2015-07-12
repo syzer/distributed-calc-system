@@ -87,7 +87,7 @@ module.exports = function gol(jsSpark, _, q, io) {
 
         // maybe recursive
         function nThGeneration(boardSize, nth) {
-            nth = nth || 5;
+            nth = nth || 10;
             var i = 0;
             while (i < nth) {
                 boardSize[0] = nextGen(boardSize).join('');
@@ -142,9 +142,9 @@ module.exports = function gol(jsSpark, _, q, io) {
 
     function startCalc() {
         // start from bigger world
-        nextWorld(_.range(100).map(function () {
-            //return _.times(10000, gol.getPartOfWorld).join('');
-            return _.times(1, gol.getPartOfWorld).join('');
+        nextWorld(_.range(500).map(function () {
+            return _.times(100, gol.getPartOfWorld).join('');
+            //return _.times(1000, gol.getPartOfWorld).join('');
         }));
     }
 
