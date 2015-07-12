@@ -47,7 +47,8 @@ di.add('algorithm.gol', function() {
     return require(ROOT + '/algorithm/gol')(
         di.get('service.jsSpark'),
         di.get('_'),
-        di.get('promise')
+        di.get('promise'),
+        di.get('io.server')
     );
 });
 

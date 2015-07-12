@@ -10,9 +10,18 @@ angular.module('jsSparkUiApp')
         ctx.fillStyle = COLOR;
 
         $scope.gols = [];
-        $scope.speed = 15;
+        $scope.speed = 0;
 
         $scope.clients = [];
+
+        socket.socket.on('newWorld', function (data) {
+            //console.warn('new world', data);
+        });
+
+        socket.socket.on('newTime', function (data) {
+            console.warn('new time', data);
+            $scope.speed = (6000 / data).toFixed(4);
+        });
 
         $http.get('/api/clients').success(function (clients) {
             $scope.clients = clients;
