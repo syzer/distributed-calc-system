@@ -70,7 +70,7 @@ module.exports = function dispatcherService(log, ioServer, serializer, _, worker
     }
 
     function onClientError(worker, socket, data) {
-        log.error('client ', socket.id, ', task ', data.id, ', reports error:', data.resp);
+        //log.error('client ', socket.id, ', task ', data.id, ', reports error:', data.resp);
         promises[socket.id] && promises[socket.id].reject(data.resp);
         workers.free(worker, -1);       // penalty
         emitFreeTask(worker);

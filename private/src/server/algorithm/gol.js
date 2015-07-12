@@ -1,4 +1,4 @@
-module.exports = function gol(jsSpark, _, q) {
+module.exports = function gol(jsSpark, _, q, socket) {
     'use strict';
 
     var moment = require('moment');
@@ -117,17 +117,19 @@ module.exports = function gol(jsSpark, _, q) {
 
     function nextWorld(world) {
         var start = moment();
+        console.time('1');
         var todos = world
             .map(jsSpark)
             .map(function (jsSpark) {
                 return jsSpark
                     .thru(runAll)
-                    .run();
+                    .run({times:5});
             });
 
         q.all(todos)
             .then(function (data) {
-                console.warn('time to run', moment().diff(start, 'seconds'));
+                console.timeEnd('1');
+                console.warn('time to run', moment().diff(start));
                 // TODO broadcast world
                 // may broadcast speed
                 // recursive
@@ -143,7 +145,8 @@ module.exports = function gol(jsSpark, _, q) {
     function startCalc() {
         // start from bigger world
         nextWorld(_.range(100).map(function () {
-            return _.times(1000, gol.getPartOfWorld).join('');
+            return _.times(100, gol.getPartOfWorld).join('');
+            //return _.times(100, gol.getPartOfWorld).join('');
         }));
     }
 
