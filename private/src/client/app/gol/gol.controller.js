@@ -19,7 +19,6 @@ angular.module('jsSparkUiApp')
         });
 
         socket.socket.on('newTime', function (data) {
-            console.warn('new time', data);
             $scope.speed = (6000 / data).toFixed(4);
         });
 

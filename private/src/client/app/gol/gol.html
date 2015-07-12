@@ -2,22 +2,28 @@
 
 <div class="container">
     <div class="row">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon input-lg">Users using this service</div>
+                        <input type="text" class="form-control input-lg" id="users" placeholder="Amount" ng-model="clients.length">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-addon input-lg">Speed iteration per min</div>
+                        <input type="text" class="form-control input-lg" id="speed" placeholder="Speed" ng-model="speed">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
         <div id="d">
             <h1>Game of life</h1>
 
-            <div class="form-group">
 
-                <div class="input-group">
-                    <div class="input-group-addon">Users using this service</div>
-                    <input type="text" class="form-control" id="users" placeholder="Amount" ng-model="clients.length">
-                </div>
-
-                <div class="input-group">
-                    <div class="input-group-addon">Speed iteration per min</div>
-                    <input type="text" class="form-control" id="speed" placeholder="Speed" ng-model="speed">
-                </div>
-
-            </div>
             <canvas width="1100" height="1200" id="canvas" drawing></canvas>
         </div>
     </div>
