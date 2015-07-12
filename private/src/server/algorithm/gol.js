@@ -87,7 +87,7 @@ module.exports = function gol(jsSpark, _, q, io) {
 
         // maybe recursive
         function nThGeneration(boardSize, nth) {
-            nth = nth || 3;
+            nth = nth || 5;
             var i = 0;
             while (i < nth) {
                 boardSize[0] = nextGen(boardSize).join('');
@@ -115,10 +115,10 @@ module.exports = function gol(jsSpark, _, q, io) {
         return prepare(input);
     }
 
+    // recursive
     function nextWorld(world) {
         io.emit('newWorld', world);
         var start = moment();
-        console.time('1');
         var todos = world
             .map(jsSpark)
             .map(function (jsSpark) {
@@ -130,14 +130,8 @@ module.exports = function gol(jsSpark, _, q, io) {
 
         q.all(todos)
             .then(function (data) {
-                console.timeEnd('1');
-                console.warn('time to run', moment().diff(start));
-
+                console.warn('iteration in:', moment().diff(start));
                 io.emit('newTime', moment().diff(start));
-                // TODO broadcast world
-                // may broadcast speed
-                // recursive
-
                 nextWorld(data);
             })
             .catch(function (error) {
@@ -150,7 +144,7 @@ module.exports = function gol(jsSpark, _, q, io) {
         // start from bigger world
         nextWorld(_.range(100).map(function () {
             //return _.times(10000, gol.getPartOfWorld).join('');
-            return _.times(100, gol.getPartOfWorld).join('');
+            return _.times(1, gol.getPartOfWorld).join('');
         }));
     }
 

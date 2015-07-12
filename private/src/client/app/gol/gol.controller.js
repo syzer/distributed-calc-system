@@ -15,7 +15,7 @@ angular.module('jsSparkUiApp')
         $scope.clients = [];
 
         socket.socket.on('newWorld', function (data) {
-            //console.warn('new world', data);
+            console.warn('new world');
         });
 
         socket.socket.on('newTime', function (data) {
