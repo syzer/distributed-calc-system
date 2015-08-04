@@ -142,7 +142,7 @@ module.exports = function gol(jsSpark, _, q, io) {
 
     function startCalc() {
         // start from bigger world
-        nextWorld(_.range(500).map(function () {
+        nextWorld(_.range(300).map(function () {
             return _.times(100, gol.getPartOfWorld).join('');
             //return _.times(1000, gol.getPartOfWorld).join('');
         }));

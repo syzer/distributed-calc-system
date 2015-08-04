@@ -2,9 +2,25 @@
 
 <div class="container">
     <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon input-lg">Users using this service</div>
+                    <input type="text" class="form-control input-lg" id="users" placeholder="Amount" ng-model="clients.length">
+                </div>
+
+                <div class="input-group">
+                    <div class="input-group-addon input-lg">Speed iteration per min</div>
+                    <input type="text" class="form-control input-lg" id="speed" placeholder="Speed" ng-model="speed">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div id="d">
             <h1>Weather prediction:</h1>
-            <h4>click and drag to draw!</h4>
             <canvas id="weatherCanvas" width="600" height="500" id="canvas" drawing></canvas>
         </div>
     </div>

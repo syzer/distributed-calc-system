@@ -9,6 +9,22 @@ angular.module('jsSparkUiApp')
             drawCanvas(weather[0]);
         });
 
+        $scope.speed = 0;
+        $scope.clients = [];
+
+        socket.socket.on('newWorld', function (data) {
+            console.warn('new world');
+        });
+
+        socket.socket.on('newTime', function (data) {
+            $scope.speed = (6000 / data).toFixed(4);
+        });
+
+        $http.get('/api/clients').success(function (clients) {
+            $scope.clients = clients;
+            socket.syncUpdates('client', $scope.clients);
+        });
+
         function drawCanvas(weather) {
             var image_index = {
                 sunny: {
