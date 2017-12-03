@@ -1,6 +1,8 @@
 WAT
 ===
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/syzer/distributed-calc-system.svg)](https://greenkeeper.io/)
+
 Crowd computing!
 
 
