@@ -22,7 +22,7 @@
     "lodash": "^4.17.4",
     "method-override": "^2.1.2",
     "mocha": "^3.4.2",
-    "moment": "^2.10.3",
+    "moment": "^2.20.1",
     "mongoose": "latest",
     "morgan": "^1.4.1",
     "passport": "~0.3.2",
