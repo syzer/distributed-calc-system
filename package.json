@@ -69,7 +69,7 @@
     "jit-grunt": "^0.10.0",
     "time-grunt": "~1.4.0",
     "grunt-express-server": "~0.5.3",
-    "grunt-open": "~0.2.3",
+    "grunt-open": "~0.2.4",
     "open": "~0.0.4",
     "jshint-stylish": "~2.2.1",
     "connect-livereload": "~0.6.0",
