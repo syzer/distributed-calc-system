@@ -57,7 +57,7 @@
     "grunt-rev": "~0.1.0",
     "grunt-svgmin": "~4.0.0",
     "grunt-usemin": "~3.1.1",
-    "grunt-env": "~0.4.1",
+    "grunt-env": "~1.0.1",
     "grunt-node-inspector": "~1.0.0",
     "grunt-nodemon": "~0.4.2",
     "grunt-angular-templates": "^1.1.0",
