@@ -64,7 +64,7 @@
     "grunt-dom-munger": "^3.4.0",
     "grunt-protractor-runner": "^5.0.0",
     "grunt-asset-injector": "^0.1.0",
-    "grunt-karma": "~2.0.0",
+    "grunt-karma": "~4.0.0",
     "grunt-mocha-test": "~0.13.2",
     "jit-grunt": "^0.10.0",
     "time-grunt": "~1.4.0",
