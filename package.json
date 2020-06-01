@@ -32,7 +32,7 @@
     "passport-twitter": "latest",
     "socket.io": "^2.0.3",
     "socket.io-client": "^2.0.3",
-    "socketio-jwt": "^4.5.0",
+    "socketio-jwt": "^4.6.2",
     "static-favicon": "^2.0.0-alpha",
     "winston": "^2.3.1"
   },
